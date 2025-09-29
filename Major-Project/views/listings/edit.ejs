@@ -1,0 +1,48 @@
+<% layout("/layouts/boilerPlate") %>
+<div class="row">
+  <div class="col-8 offset-2">
+<h2 class="text-center my-4">Edit Your Listing</h2>
+
+<form method="POST" action="/listings/<%= foundListing._id %>?_method=PUT" class="container needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" id="title" name="listing[title]" class="form-control" value="<%= foundListing.title %>" required>
+    <div class="valid-feedback">Title looks good</div>
+    <div class="invalid-feedback">Title is Required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea id="description" name="listing[description]" class="form-control" rows="3" required><%= foundListing.description %></textarea>
+    <div class="invalid-feedback">Description is Required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Image URL</label>
+    <input type="text" id="image" name="listing[image]" class="form-control" value="<%= foundListing.image %>" required>
+    <div class="invalid-feedback">Image URL  is Required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Price (₹)</label>
+    <input type="number" id="price" name="listing[price]" class="form-control" value="<%= foundListing.price %>" required>
+    <div class="invalid-feedback">Enter valid price</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input type="text" id="country" name="listing[country]" class="form-control" value="<%= foundListing.country %>" required>
+    <div class="invalid-feedback">Country name is Required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" id="location" name="listing[location]" class="form-control" value="<%= foundListing.location %>" required>
+    <div class="invalid-feedback">Location is Required</div>
+  </div>
+
+  <button type="submit" class="btn btn-dark edit-btn mtn-3">Add</button>
+</form>
+</div>
+</div>
+<script src="/js/script.js"></script>
