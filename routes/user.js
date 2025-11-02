@@ -17,7 +17,7 @@ router.
 
 router.
   route("/login")
-   .get(userController.renderSignupform)
+   .get(userController.renderLoginform)
    .post(
   saveRedirectUrl,
   passport.authenticate("local", {
