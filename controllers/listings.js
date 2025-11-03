@@ -52,7 +52,7 @@ module.exports.editListing = async(req,res)=>{
   const foundListing =  await Listing.findById(id);
   if(!foundListing) {
     req.flash("error",'listing you requested for does not exist!')
-    res.redirect("listings/edit.ejs",{foundListing})
+    res.render("listings/edit.ejs", { foundListing });
   }
 
   let originalImageUrl = foundListing.image.url;
