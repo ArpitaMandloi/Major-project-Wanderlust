@@ -1,10 +1,10 @@
-body{
-  font-family: "plus Jakarta Sans",sans-serif !important;
+body {
+  font-family: "plus Jakarta Sans", sans-serif !important;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-.container{
+.container {
   flex: 1;
 }
 
@@ -23,7 +23,6 @@ body{
   font-size: 2rem;
   transition: transform 0.3s ease;
 }
-
 .fa-compass:hover {
   transform: rotate(15deg);
 }
@@ -44,7 +43,6 @@ body{
   position: relative;
   transition: color 0.3s ease;
 }
-
 .nav-link:hover {
   color: #fe424d !important;
 }
@@ -61,7 +59,6 @@ body{
   bottom: -4px;
   left: 0;
 }
-
 .nav-link:hover::after {
   width: 100%;
 }
@@ -71,12 +68,11 @@ body{
   border: none;
   outline: none;
 }
-
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(34,34,34, 0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
-/* footer */
-/* Footer container */
+
+/* Footer */
 footer {
   background-color: #f8f9fa;
   padding: 1.5rem 0;
@@ -85,16 +81,12 @@ footer {
   color: #343a40;
   text-align: center;
 }
-
-/* Footer info wrapper */
 .f-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
 }
-
-/* Social icons */
 .f-info-social i {
   font-size: 1.5rem;
   margin: 0 0.5rem;
@@ -102,13 +94,10 @@ footer {
   transition: color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
-
 .f-info-social i:hover {
   color: #fe424d;
   transform: scale(1.2);
 }
-
-/* Footer links */
 .f-info-links a {
   margin: 0 0.5rem;
   color: #6c757d;
@@ -116,27 +105,20 @@ footer {
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
-
 .f-info-links a:hover {
   color: #fe424d;
   text-decoration: underline;
 }
-
-/* Copyright text */
 .f-info > div:nth-child(2) {
   font-size: 0.9rem;
   color: #495057;
 }
 
-/* cards */
-
-/* Anchor wrapper */
+/* Cards */
 a {
   text-decoration: none;
   color: inherit;
 }
-
-/* Card styling */
 .card {
   border: none;
   border-radius: 10px;
@@ -145,34 +127,27 @@ a {
   overflow: hidden;
   background-color: #ffffff;
 }
-
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
-
-/* Image styling */
 .card-img-top {
   height: 200px;
   object-fit: cover;
   border-bottom: 1px solid #eee;
 }
-
-/* Card body */
 .card-body {
   padding: 1rem;
   text-align: left;
 }
-
-/* Card text */
 .card-text {
   font-size: 1rem;
   color: #333;
   line-height: 1.5;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  /* new page */
 }
+
+/* Buttons */
 .btn-btn-primary {
   background-color: #fe424d;
   border: none;
@@ -183,9 +158,7 @@ a {
   border-radius: 6px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
-/* edit page */
-.edit-btn{
+.edit-btn {
   background-color: #fe424d;
   border: none;
   color: #fff;
@@ -195,20 +168,17 @@ a {
   border-radius: 6px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-/* show */
-/* Heading */
+
+/* Show page */
 h3 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
 }
-
-/* Card container */
 .card-1 {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
-
 .card-2 {
   width: 18rem;
   border-radius: 10px;
@@ -216,32 +186,27 @@ h3 {
   background-color: #fff;
   overflow: hidden;
   transition: transform 0.3s ease;
+  /* ✅ Compact height since map is not used */
+  max-height: 22rem;
 }
-
 .card-2:hover {
   transform: translateY(-5px);
 }
-
-/* Image */
 .card-img-top {
-  height: 200px;
+  height: 150px; /* ✅ reduced from 200px */
   object-fit: cover;
   border-bottom: 1px solid #eee;
 }
-
-/* Card body */
 .card-body {
   padding: 1rem;
   text-align: left;
 }
-
 .card-text {
   font-size: 1rem;
   color: #444;
   line-height: 1.6;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .card-text b {
   font-size: 1.2rem;
   color: #fe424d;
@@ -252,48 +217,8 @@ h3 {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.btn-edit {
-  background-color: #fe424d;
-  color: #fff;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-edit:hover {
-  background-color: #e53e44;
-  transform: scale(1.03);
-}
-
-.btn-delete {
-  background-color: #6c757d;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-delete:hover {
-  background-color: #5a6268;
-  transform: scale(1.03);
-}
-/* Action container */
-.listing-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
   margin-top: 2rem;
 }
-
-/* Edit button */
 .btn-edit {
   background-color: #fe424d;
   color: #fff;
@@ -303,13 +228,10 @@ h3 {
   font-weight: 500;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .btn-edit:hover {
   background-color: #e53e44;
   transform: scale(1.03);
 }
-
-/* Delete button */
 .btn-delete {
   background-color: #6c757d;
   color: #fff;
@@ -320,7 +242,6 @@ h3 {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .btn-delete:hover {
   background-color: #5a6268;
   transform: scale(1.03);
