@@ -1,208 +1,117 @@
 <style>
-  /* Search form styling */
-  form[role="search"] {
+  /* Desktop search bar */
+  .search-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    gap: 10px;
-    max-width: 600px;
-    width: 90%;
+    width: 40%;
   }
 
   .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 3rem;
-    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
   }
 
   .btn-search {
     background-color: #f75963;
-    color: #ffff;
+    color: #fff;
     border-radius: 25px;
-    padding: 0 1rem;
-  }
-
-  .btn-search:hover {
-    background-color: #f75963;
-    color: #ffff;
-  }
-
-  .btn-search i {
-    display: inline;
-    margin-right: 0.5rem;
-  }
-
-  /* Responsive behavior */
-  @media (max-width: 768px) {
-    .navbar-nav {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-link {
-      margin-right: 0;
-      font-size: 0.95rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.3rem;
-    }
-
-    .navbar-toggler {
-      margin-left: auto;
-    }
-
-    form[role="search"] {
-      position: static;
-      transform: none;
-      flex-direction: column;
-      align-items: center;
-      width: 90%;
-      margin: 1rem auto;
-    }
-
-    .search-inp {
-      width: 100%;
-      margin-bottom: 0.75rem;
-      padding: 0.5rem 1rem;
-      font-size: 0.95rem;
-    }
-
-    .btn-search {
-      width: 100%;
-      padding: 0.5rem 1rem;
-      font-size: 0.95rem;
-    }
-
-    .btn-search i {
-      margin-right: 0.3rem;
-    }
-  }
-</style>
-<style>
-  /* Search form styling */
-  form[role="search"] {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 8px;
-    max-width: 400px;
-    width: 80%;
-  }
-
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.4rem 1.5rem;
-    font-size: 0.95rem;
-    flex: 1;
-  }
-
-  .btn-search {
-    background-color: #f75963;
-    color: #ffff;
-    border-radius: 25px;
-    padding: 0.4rem 1rem;
-    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
     white-space: nowrap;
   }
 
   .btn-search:hover {
     background-color: #f75963;
-    color: #ffff;
   }
 
-  .btn-search i {
-    display: inline;
-    margin-right: 0.4rem;
-  }
-
-  /* Responsive behavior */
+  /* ---------- MOBILE FIX ---------- */
   @media (max-width: 768px) {
-    form[role="search"] {
+    /* Remove absolute position */
+    .search-wrapper {
       position: static;
       transform: none;
-      flex-direction: column;
-      align-items: center;
-      width: 90%;
-      margin: 1rem auto;
+      width: 100%;
+      margin: 10px 0;
     }
 
     .search-inp {
       width: 100%;
-      margin-bottom: 0.5rem;
-      padding: 0.4rem 1rem;
-      font-size: 0.9rem;
+      margin-bottom: 10px;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
     }
 
     .btn-search {
       width: 100%;
-      padding: 0.4rem 1rem;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      padding: 0.6rem;
     }
 
-    .btn-search i {
-      margin-right: 0.3rem;
-    }
-
+    /* Center nav links on mobile */
     .navbar-nav {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+      text-align: center;
+      width: 100%;
     }
 
-    .nav-link {
-      margin-right: 0;
-      font-size: 0.95rem;
-    }
-
-    .navbar-brand {
-      font-size: 1.3rem;
-    }
-
-    .navbar-toggler {
-      margin-left: auto;
+    .navbar-nav .nav-link {
+      padding: 10px 0;
+      font-size: 1.1rem;
     }
   }
 </style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup">
+
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
+    <div class="search-wrapper d-none d-md-block">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
+        <button class="btn btn-search" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i> Search
+        </button>
+      </form>
+    </div>
 
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
-          <button class="btn btn-search" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-      </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb Your home</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+
+        <li class="nav-item d-md-none">
+          <!-- mobile-only search bar -->
+          <div class="search-wrapper mt-2">
+            <form class="d-flex flex-column" role="search">
+              <input class="form-control search-inp" type="search" placeholder="Search destination" />
+              <button class="btn btn-search mt-2" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+              </button>
+            </form>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Airbnb Your Home</a>
+        </li>
+
         <% if (!currUser) { %>
-          <a class="nav-link" href="/signup"><b>signup</b></a>
-          <a class="nav-link" href="/login"><b>Login</b></a>
+          <li class="nav-item"><a class="nav-link" href="/signup"><b>Signup</b></a></li>
+          <li class="nav-item"><a class="nav-link" href="/login"><b>Login</b></a></li>
+        <% } else { %>
+          <li class="nav-item"><a class="nav-link" href="/logout"><b>Logout</b></a></li>
         <% } %>
-        <% if (currUser) { %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
-      </div>
+
+      </ul>
     </div>
   </div>
 </nav>

@@ -246,3 +246,38 @@ h3 {
   background-color: #5a6268;
   transform: scale(1.03);
 }
+
+/* ------------------------------------- */
+/* FIX MOBILE NAVBAR DROPDOWN OVERLAP   */
+/* ------------------------------------- */
+
+@media (max-width: 768px) {
+  
+  /* Allow navbar to grow with dropdown */
+  .navbar {
+    height: auto !important;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Make dropdown visible, push content down */
+  .navbar-collapse {
+    background: #ffffff !important;
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 9999;
+  }
+
+  /* Ensure links expand full width */
+  .navbar-nav .nav-item {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Fix toggler overlapping */
+  .navbar-toggler {
+    z-index: 10000;
+    position: relative;
+  }
+}
