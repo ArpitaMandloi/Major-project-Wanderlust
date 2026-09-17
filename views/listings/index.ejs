@@ -141,7 +141,7 @@
       <% for(let listing of alllistings) { %>
        <a href="/listings/<%= listing._id %>" class="text-decoration-none">
   <div class="card h-100">
-    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image">
+    <img src="<%= (listing.image && listing.image.url) ? listing.image.url : 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=800&q=60' %>" class="card-img-top" alt="listing-image">
     <div class="card-body">
      <p class="card-text">
   <%= listing.title %> <br>

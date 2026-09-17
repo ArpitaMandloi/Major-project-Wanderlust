@@ -23,41 +23,48 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js")
 
 
-const dbUrl = process.env.ATLAS_URL;
+const dbUrl = process.env.ATLAS_URL || "mongodb://127.0.0.1:27017/wanderlust";
+const secret = process.env.SECRET || "thisshouldbeabettersecret";
 
-main().then(()=>{console.log("connected to DB")})
-.catch((err)=>{console.log(err)});
+main()
+  .then(() => {
+    console.log("Connected to MongoDB successfully!");
+  })
+  .catch((err) => {
+    console.error("MongoDB Connection Error:", err.message);
+  });
 
 async function main() { 
   await mongoose.connect(dbUrl);
- }
-app.set("view engine","ejs"); app.set("views",path.join(__dirname,"views"));
+}
+
+app.set("view engine","ejs"); 
+app.set("views",path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
-app.engine("ejs",ejsMate); app.use(express.static(path.join(__dirname,"/public")));
-
-
+app.engine("ejs",ejsMate); 
+app.use(express.static(path.join(__dirname,"/public")));
 
 const store = MongoStore.create({
    mongoUrl : dbUrl,
    crypto:{
-    secret :process.env.SECRET,
+    secret : secret,
    },
-   touchAfter:24 * 3600,
+   touchAfter: 24 * 3600,
 });
 
-store.on("error",() =>{
-  console.log("error in MONGO SESSION STORE" , err);
+store.on("error",(err) =>{
+  console.log("Error in MONGO SESSION STORE:", err);
 });
 
 const sessionOptions = {
   store,
-  secret :process.env.SECRET,
+  secret : secret,
   resave : false,
   saveUninitialized : true,
   cookie : {
-    expires : Date.now() + 7 * 24 * 60 *60 * 1000,
-    maxAge : 7 * 24 * 60 *60 * 1000,
+    expires : Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge : 7 * 24 * 60 * 60 * 1000,
     httpOnly : true,
   }
 };
